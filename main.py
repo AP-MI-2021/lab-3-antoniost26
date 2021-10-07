@@ -54,6 +54,7 @@ def allPrimeDigits(l):
             x //= 10
     return True
 
+
 def test_allPrimeDigits():
     assert allPrime([]) is True
     assert allPrime([10, 4, 5]) is False
@@ -61,6 +62,7 @@ def test_allPrimeDigits():
     assert allPrime([3, 5, 7]) is True
     assert allPrimeDigits([3, 11, 17, 22]) is False
     assert allPrimeDigits([27, 33, 23]) is True
+
 
 def get_longest_all_primes(lst: list[int]) -> list[int]:
     '''
@@ -97,12 +99,14 @@ def get_longest_prime_digits(lst: list[int]) -> list[int]:
                 longestMax = lst[i:j + 1]
     return longestMax
 
+
 def test_get_longest_prime_digits():
     assert get_longest_prime_digits([]) == []
     assert get_longest_prime_digits([1, 2, 3]) == [2, 3]
     assert get_longest_prime_digits([11, 10, 12]) == []
     assert get_longest_prime_digits([10, 20, 3, 10]) == [3]
     assert get_longest_prime_digits([10, 20, 3, 5, 10]) == [3, 5]
+
 
 def all_tests():
     test_allPrime()
