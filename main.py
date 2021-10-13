@@ -45,7 +45,7 @@ def allPrimeDigits(l):
     '''
     Determina daca toate numerele dintr-o lista sunt numere a caror cifre sunt prime.
     :param l: Lista de numere intregi.
-    :return: True, daca toate numerele din l sunt numerea caror cifre sunt prime sau False in caz contrar.
+    :return: True, daca toate numerele din l sunt numere a caror cifre sunt prime sau False in caz contrar.
     '''
     for x in l:
         while x != 0:
@@ -62,6 +62,25 @@ def test_allPrimeDigits():
     assert allPrime([3, 5, 7]) is True
     assert allPrimeDigits([3, 11, 17, 22]) is False
     assert allPrimeDigits([27, 33, 23]) is True
+
+
+def allEvenDigits(lst):
+    '''
+    Determina daca toate numerele dintr-o lista sunt numere pare.
+    :param lst: Lista de numere intregi.
+    :return:  True, daca toate numerele din lst sunt numere pare, iar False in caz contrar.
+    '''
+    for x in lst:
+        if x % 2 == 1:
+            return False
+    return True
+
+
+def test_allEvenDigits():
+    assert allEvenDigits([3, 5, 4, 2]) is False
+    assert allEvenDigits([2, 4, 6]) is True
+    assert allEvenDigits([]) is True
+    assert allEvenDigits([2, 4, 6, 7]) is False
 
 
 def get_longest_all_primes(lst: list[int]) -> list[int]:
@@ -108,19 +127,42 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([10, 20, 3, 5, 10]) == [3, 5]
 
 
+def get_longest_all_even(lst: list[int]) -> list[int]:
+    '''
+    Determina cea mai lunga subsecventa de numere pare.
+    :param lst: Lista cu numere intregi.
+    :return: Returneaza cea mai lunga subsecventa de numere pare.
+    '''
+    longestMax = []
+    for i in range(len(lst)):
+        for j in range(i, len(lst)):
+            if allEvenDigits(lst[i:j + 1]) and len(lst[i:j + 1]) > len(longestMax):
+                longestMax = lst[i:j + 1]
+    return longestMax
+
+
+def test_get_longest_all_even():
+    assert get_longest_all_even([2, 4, 5, 7, 6, 2, 4]) == [6, 2, 4]
+    assert get_longest_all_even([3, 2, 5, 7, 1, 2, 4]) == [2, 4]
+    assert get_longest_all_even([2, 3, 1, 5]) == [2]
+    assert get_longest_all_even([1, 5, 4, 3, 2, 2]) == [2, 2]
+    assert get_longest_all_even([1, 4, 4, 5, 6, 1, 2]) == [4, 4]
+
+
 def all_tests():
     test_allPrime()
     test_get_longest_all_primes()
     test_IsPrime()
     test_get_longest_prime_digits()
     test_allPrimeDigits()
+    test_allEvenDigits()
 
 
 def printMenu():
     print("1. Citire date")
-    print("2. Determinare cea mai lungă subsecvență cu proprietatea 1.")
-    print("3. Determinare cea mai lungă subsecvență cu proprietatea 2.")
-    print("4. Iesire")
+    print("2. Determinare cea mai lungă subsecvență cu proprietatea ca toate numerele sa fie prime.")
+    print("3. Determinare cea mai lungă subsecvență cu proprietatea ca toate cifrele din numar sa fie prime.")
+    print("4. Determinare cea mai lunga subsecventa cu proprietatea ca tote numerele sa fie pare.")
 
 
 def citireLista():
@@ -146,6 +188,8 @@ def main():
         elif optiune == "3":
             print(get_longest_prime_digits(list))
         elif optiune == "4":
+            print(get_longest_all_even(list))
+        elif optiune == "5":
             break
         else:
             print("Optiune gresita! Reincercati!")
