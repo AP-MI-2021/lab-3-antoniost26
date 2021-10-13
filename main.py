@@ -22,7 +22,7 @@ def test_IsPrime():
     assert isPrime(5) is True
 
 
-def allPrime(l):
+def allPrime(l: list[int]):
     '''
     Determina daca toate numerele dintr-o lista sunt prime.
     :param l: Lista de numere intregi.
@@ -41,7 +41,7 @@ def test_allPrime():
     assert allPrime([3, 5, 7]) is True
 
 
-def allPrimeDigits(l):
+def allPrimeDigits(l: list[int]):
     '''
     Determina daca toate numerele dintr-o lista sunt numere a caror cifre sunt prime.
     :param l: Lista de numere intregi.
@@ -64,7 +64,7 @@ def test_allPrimeDigits():
     assert allPrimeDigits([27, 33, 23]) is True
 
 
-def allEvenDigits(lst):
+def allEvenDigits(lst: list[int]):
     '''
     Determina daca toate numerele dintr-o lista sunt numere pare.
     :param lst: Lista de numere intregi.
