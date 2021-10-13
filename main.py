@@ -196,4 +196,5 @@ def main():
             print("Optiune gresita! Reincercati!")
 
 
-main()
+if __name__ == '__main__':
+  main()
