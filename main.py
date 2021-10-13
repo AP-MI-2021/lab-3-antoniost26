@@ -156,6 +156,7 @@ def all_tests():
     test_get_longest_prime_digits()
     test_allPrimeDigits()
     test_allEvenDigits()
+    test_get_longest_all_even()
 
 
 def printMenu():
@@ -167,7 +168,6 @@ def printMenu():
 
 
 def citireLista():
-    all_tests()
     l = []
     givenString = input("Dati lista, cu elemente separate prin virgula: ")
     numbersAsString = givenString.split(",")
