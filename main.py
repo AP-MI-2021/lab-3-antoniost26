@@ -163,6 +163,7 @@ def printMenu():
     print("2. Determinare cea mai lungă subsecvență cu proprietatea ca toate numerele sa fie prime.")
     print("3. Determinare cea mai lungă subsecvență cu proprietatea ca toate cifrele din numar sa fie prime.")
     print("4. Determinare cea mai lunga subsecventa cu proprietatea ca tote numerele sa fie pare.")
+    print("5. Iesire.")
 
 
 def citireLista():
